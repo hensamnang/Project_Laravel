@@ -8,8 +8,9 @@
                 <div class="card-header text-center">{{ __('Add Student') }}</div>
 
                 <div class="card-body">
-                    <form action="{{route('student.store')}}" method="POST" >
+                    <form action="{{route('student.store')}}" method="POST" enctype="multipart/form-data" >
                         @csrf
+                        {{csrf_field()}}
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('FirstName :') }}</label>
                             <div class="col-md-6">
@@ -43,6 +44,9 @@
                                     <option value="WEP_A">WEP_A</option>
                                     <option value="WEP_B">WEP_B</option>
                                     <option value="SNA">SNA</option>
+                                    <option value="2021_A">2021_A</option>
+                                    <option value="2021_B">2021_B</option>
+                                    <option value="2021_C">2021_C</option>
                                 </select>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -54,7 +58,7 @@
                         <div class="form-group row">
                             <label for="text" class="col-md-4 col-form-label text-md-right">{{ __('Description :') }}</label>
                             <div class="col-md-6">
-                                <textarea class="textarea" name="description" placeholder="Your description"></textarea>
+                                <textarea class="textarea" name="description" class="form-control" placeholder="Your description"></textarea>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -65,7 +69,7 @@
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Your Picture :') }}</label>
                             <div class="col-md-6">
-                                <input type="file" name="image" />
+                                <input type="file"  name="image" />
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

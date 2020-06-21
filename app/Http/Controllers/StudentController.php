@@ -37,7 +37,16 @@ class StudentController extends Controller
        $storeStudent->lastname      = $request->input('lastname') ;
        $storeStudent->class         = $request->input('class') ;
        $storeStudent->description   = $request->input('description') ;
-       $storeStudent->picture       = $request->input('image') ;
+    if($request->hasfile('image')){
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $fillName = time() . '.' . $extension;
+        $file->move('Images/', $fillName);
+        $storeStudent->picture = $fillName;
+    }else{
+        return $request;
+        $storeStudent->picture = ' ';
+    }
        $storeStudent->save();
        return redirect('home');
     }
@@ -77,9 +86,17 @@ class StudentController extends Controller
        $updateStudent->lastname      = $request->input('lastname') ;
        $updateStudent->class         = $request->input('class') ;
        $updateStudent->description   = $request->input('description') ;
-       $updateStudent->picture       = $request->input('image') ;
+       
+       if($request->hasfile('image')){
+        $file = $request->file('image');
+        $extension = $file->getClientOriginalExtension();
+        $fillName = time() . '.' . $extension;
+        $file->move('Images/', $fillName);
+        $updateStudent->picture = $fillName;
+    }
        $updateStudent->save();
        return redirect('home');
+    
     }
 
     /**
