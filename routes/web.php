@@ -17,6 +17,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::resource('student','StudentController');
+Route::resource('comment','CommentController');
 
 Auth::routes();
 
