@@ -19,6 +19,7 @@
                     <table class="table table-bordered text-center">
                         <thead class="btn-primary">
                             <tr>
+                                <th width="3%">ID</th>
                                 <th width="10%">Profile</th>
                                 <th width="15%">Student Name</th>
                                 <th width="10%">Class</th>
@@ -28,19 +29,18 @@
                             <tbody>
                                 @foreach ($students as $student)
                                     <tr>
+                                        <td>{{$student->id}}</td>
                                         <td><img src="{{asset('Images/'. $student->picture) }}" class="rounded-circle" width="50" height="50" /></td>
                                         <td>{{$student->firstname}} {{$student->lastname}}</td>
                                         <td>{{$student->class}}</td>
                                         <td>{{$student->description}}</td>
                                         <td>
-                                            <a href=""><i class="material-icons blue-text">comment</i></a>
-                                            <a href="{{route('student.edit',$student -> id)}}"><button type="submit" ><i class="material-icons blue-text">edite</i></button></a>
                                             <form action="{{route('student.destroy',$student ->id)}}" method="POST">
+                                                <a href="{{route('comment.show',$student->id)}}" class="btn btn-success"><i class="material-icons blue-text">comment</i></a>
+                                                <a href="{{route('student.edit',$student->id)}}" class="btn btn-primary"><i class="material-icons blue-text">edite</i></a>
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="text-danger" data-toggle="modal" data-target="#myModal">
-                                                    <i class="material-icons  red-text">delete</i>
-                                                </button>
+                                               <button type="submit" class="btn btn-danger">Delete</button>
                                             </form>
                                         </td>
                                     </tr>
