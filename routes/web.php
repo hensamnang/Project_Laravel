@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 Route::resource('student','StudentController');
 Route::resource('comment','CommentController');
-
 Auth::routes();
+Route::post('/add/{id}','CommentController@addComment')->name('addComment');
 
 Route::get('/home', 'HomeController@index')->name('home');

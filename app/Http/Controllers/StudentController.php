@@ -59,7 +59,11 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        // $showStudent = Student::find($id);
+        // // $Comment ->$showStudent->;
+
+        // return view('Comments.addComment',compact('showStudent','Comment'))
+
     }
 
     /**
