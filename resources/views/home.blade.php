@@ -3,13 +3,7 @@
 
 <div class="container">
     <div class="row justify-content-center mb-3">
-        <div class="col-md-6">
-            <div class="card ">
-                <div class="card-active">
-                    <h4 class="center blue-text">Student Follow Up List</h4>
-                </div>
-            </div>
-        </div>
+        <h2 class="center text-primary">Student Follow Up List</h2>
     </div>
     <div class="card">
         <div class="card-header">
