@@ -20,5 +20,7 @@ Route::resource('student','StudentController');
 Route::resource('comment','CommentController');
 Auth::routes();
 Route::post('/add/{id}','CommentController@addComment')->name('addComment');
-
+Route::get('outOfFolloUp/{id}','StudentController@outOfFolloUp')->name('outOfFolloUp');
+Route::get('backFolloUp/{id}','StudentController@backFolloUp')->name('backFolloUp');
+Route::get('viewOutOfFollowUpList','StudentController@viewOutOfFollowUpList')->name('viewOutOfFollowUpList');
 Route::get('/home', 'HomeController@index')->name('home');

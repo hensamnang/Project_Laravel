@@ -20,11 +20,19 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body style="background-color: rgb(191, 247, 244)">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-           
-            <div class="container">
+            
+            <div class="container panel with-nav-tabs panel-default">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="#homepage">Student Follow Up</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="{{route('viewOutOfFollowUpList')}}">Out Of FollowUp</a>
+                    </li>
+                  </ul>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

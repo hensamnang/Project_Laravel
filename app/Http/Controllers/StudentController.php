@@ -114,4 +114,30 @@ class StudentController extends Controller
         $delete->delete();
        return redirect('home');
     }
+
+    public function outOfFolloUp(Request $request, $id){
+        $students = Student::find($id);
+        $students->activeFollowup = 1;
+        $students->save();
+        return redirect('home');
+    }
+
+    public function backFolloUp(Request $request,$id){
+        $students = Student::find($id);
+        $students->activeFollowup = 0;
+        $students->save();
+        return redirect('home');
+    }
+
+    public function viewOutOfFollowUpList(){
+        $students = Student::where('activeFollowup', 1)->get();
+        return view('outOfFollowUp',compact('students'));    
+    }
+
+
+
+
+
+
+
 }
