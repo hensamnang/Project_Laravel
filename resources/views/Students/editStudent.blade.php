@@ -11,6 +11,19 @@
                         @method('PATCH')
                         @csrf
                         <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                            <div class="col-md-6 float-center">
+                                <img src="{{ URL::to('/') }}/Images/{{ $editStudent->picture }}" class="rounded-circle" width="90" height="90" />
+                                <input type="file" name="image" />
+                                    <input type="hidden" name="hidden_image" value="{{ $editStudent->picture}}" />
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('FirstName :') }}</label>
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{$editStudent->firstname}}" required autocomplete="name" autofocus>
@@ -61,19 +74,6 @@
                                 <textarea class="textarea" name="description" class="form-control" placeholder="Your description">
                                     {{$editStudent->description}}
                                 </textarea>
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Your Picture :') }}</label>
-                            <div class="col-md-6">
-                                <input type="file" name="image" />
-                                    <img src="{{ URL::to('/') }}/Images/{{ $editStudent->picture }}" class="rounded-circle" width="50" height="50" />
-                                    <input type="hidden" name="hidden_image" value="{{ $editStudent->picture}}" />
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
